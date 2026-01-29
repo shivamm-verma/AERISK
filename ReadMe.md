@@ -69,7 +69,7 @@ flowchart TD
 
 <!-- ```bash
 # Clone the repository
-git clone <repo-url>
+git clone https://github.com/shivamm-verma/AAI_Risk-analysis_Fault-Prediction.git
 cd <project-directory>
 
 # Install dependencies
@@ -138,6 +138,6 @@ Proprietary - Airport Authority of India (AAI) -->
 
 ---
 
-![Predictive Maintenance](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjllYm5jeGpiYnE4ZjFwcTI1eGx5dXhjNGkyYTl1NHp4aTdzaHd1ayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ua7vVw9awZKWwLSYpW/giphy.gif)
+![Fun Gif](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjllYm5jeGpiYnE4ZjFwcTI1eGx5dXhjNGkyYTl1NHp4aTdzaHd1ayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ua7vVw9awZKWwLSYpW/giphy.gif)
 
 *Ensuring aviation safety through predictive analytics*
