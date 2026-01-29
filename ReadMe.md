@@ -60,15 +60,13 @@ flowchart TD
 - **Docker** - Containerization (optional) -->
 
 ## Key Features
+- will be added soon
 
-- Multi-model support for different component types
-- Real-time risk scoring and predictions
-- Interactive results dashboard
-- Historical trend analysis
-- Exportable maintenance reports
-- User-friendly interface for technical and non-technical staff
+
 
 ## Installation
+- will be added soon
+
 <!-- ```bash
 # Clone the repository
 git clone <repo-url>
