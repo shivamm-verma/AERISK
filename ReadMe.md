@@ -6,6 +6,12 @@
 
 <Project_NickName> is an advanced tool designed to assist in **risk analysis** and **fault prediction** of aircraft components. By leveraging machine learning models, this system helps maintenance teams identify potential failures before they occur, ensuring aviation safety and operational efficiency.
 
+## Quick Navigation
+Where | Why
+-- | --
+[Active Issues](https://github.com/shivamm-verma/AAI_Risk-analysis_Fault-Prediction/issues) | Find all the current listed issues which requires completion
+[Roadmap & deadlines](https://github.com/users/shivamm-verma/projects/7) | To ensure smooth movements, check the deadlines/roadmap to completion of each issue
+
 ## Project Workflow
 
 | Step | Description |
