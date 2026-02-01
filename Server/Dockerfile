@@ -11,4 +11,4 @@ WORKDIR /app/Server
 ENV PORT=5000
 EXPOSE 5000
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "5000"]
+CMD uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-5000}
