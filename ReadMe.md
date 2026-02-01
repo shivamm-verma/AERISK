@@ -1,4 +1,4 @@
-# **AERISK (Aviation Risk Analysis System)** (TBA)
+# **AERISK (Aviation Risk Analysis System)**
 
 > A predictive maintenance solution for the Airport Authority of India (AAI)
 
