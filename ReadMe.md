@@ -12,6 +12,14 @@ Where | Why
 [Active Issues](https://github.com/shivamm-verma/AAI_Risk-analysis_Fault-Prediction/issues) | Find all the current listed issues which requires completion
 [Roadmap & deadlines](https://github.com/users/shivamm-verma/projects/7) | To ensure smooth movements, check the deadlines/roadmap to completion of each issue
 
+## 🚀 Deployment
+
+| Component | Platform | URL |
+|---------|----------|-----|
+| Frontend | Vercel | https://risk-analysis-fault-prediction.vercel.app/ |
+| Backend | Render | https://aai-risk-analysis-fault-prediction.onrender.com/docs |
+
+
 ## Project Workflow
 
 | Step | Description |

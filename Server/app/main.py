@@ -24,11 +24,12 @@ origins = [
     "http://localhost:5173",
     "http://localhost:3000",
     "http://localhost:5000",
+    "https://risk-analysis-fault-prediction.vercel.app",
 ]
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
-    allow_origin_regex=r"^https?://.*",
+    allow_origin_regex=r"^https?://.*\.vercel\.app$",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
