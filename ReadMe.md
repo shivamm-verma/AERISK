@@ -1,10 +1,10 @@
-# <Project_NickName> (TBA)
+# **AERISK (Aviation Risk Analysis System)** (TBA)
 
 > A predictive maintenance solution for the Airport Authority of India (AAI)
 
 ## Overview
 
-<Project_NickName> is an advanced tool designed to assist in **risk analysis** and **fault prediction** of aircraft components. By leveraging machine learning models, this system helps maintenance teams identify potential failures before they occur, ensuring aviation safety and operational efficiency.
+**AERISK (Aviation Risk Analysis System)** is an advanced tool designed to assist in **risk analysis** and **fault prediction** of aircraft components. By leveraging machine learning models, this system helps maintenance teams identify potential failures before they occur, ensuring aviation safety and operational efficiency.
 
 ## Quick Navigation
 Where | Why
