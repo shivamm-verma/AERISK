@@ -12,7 +12,7 @@ Where | Why
 [Active Issues](https://github.com/shivamm-verma/AAI_Risk-analysis_Fault-Prediction/issues) | Find all the current listed issues which requires completion
 [Roadmap & deadlines](https://github.com/users/shivamm-verma/projects/7) | To ensure smooth movements, check the deadlines/roadmap to completion of each issue
 
-## 🚀 Deployment
+## Deployment
 
 | Component | Platform | URL |
 |---------|----------|-----|
@@ -31,6 +31,9 @@ Where | Why
 | 5 | Generate and export maintenance reports |
 
 ## System Flow
+<details>
+<summary>🚨 Click to expand the Mermaid flowchart</summary>
+    
 ```mermaid
 flowchart TD
     A[Start] --> B[Upload CSV Data]
@@ -46,6 +49,81 @@ flowchart TD
     J -->|No| L[End]
     K --> L
 ```
+
+</details>
+
+## File structure 
+(as of 04-02-2026)
+
+<details>
+  <summary>🚨 Click to view Project Structure</summary>
+
+```text
+AAI_Risk analysis_Fault Prediction
+├── .gitignore
+├── CONTRIBUTING.md
+├── LICENSE
+├── ReadMe.md
+├── Client
+│   ├── .env.local
+│   ├── .env.production
+│   ├── .gitignore
+│   ├── eslint.config.js
+│   ├── index.html
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── README.md
+│   ├── vite.config.js
+│   ├── public
+│   │   └── logo.png
+│   └── src
+│       ├── App.jsx
+│       ├── index.css
+│       ├── main.jsx
+│       ├── assets
+│       │   └── react.svg
+│       ├── components
+│       │   ├── Footer.jsx
+│       │   ├── Header.jsx
+│       │   ├── Layout.jsx
+│       │   └── Navbar.jsx
+│       └── pages
+│           ├── About.jsx
+│           ├── Dashboard.jsx
+│           ├── Home.jsx
+│           └── Tools.jsx
+├── Model
+│   ├── durability.pkl
+│   ├── dataset
+│   │   └── aerospace_structural_design_dataset.csv
+│   └── Jupyter Notebook
+│       ├── durabilityrequirements.txt
+│       └── structural_integrity.ipynb
+└── Server
+    ├── .python-version
+    ├── Dockerfile
+    ├── fly.toml
+    ├── README.md
+    ├── RENDER_DEPLOY.md
+    ├── requirements.txt
+    ├── runtime.txt
+    └── app
+        ├── __init__.py
+        ├── main.py
+        └── model_registry.py
+```
+</details
+
+Recreate the latest directory structure by the following command in the `Powershell`(Windows) terminal:
+```sh
+# Install once
+Install-Module PSTree -Scope CurrentUser
+
+# Use whenever needed
+Get-PSTree -Recurse -Exclude "node_modules", ".venv", "__pycache__" | Select-Object -ExpandProperty Hierarchy
+```
+
+
 
 ## Tech Stack
 
@@ -67,6 +145,8 @@ flowchart TD
 - **Tailwind CSS** - Styling
 - **Axios** - API communication
 <!-- - **Chart.js/D3.js** - Data visualization -->
+
+- More tech stack will be revealed soon.
 
 <!-- ### DevOps
 - **Git** - Version control
