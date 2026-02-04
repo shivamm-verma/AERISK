@@ -1,0 +1,14 @@
+name: Keep Render Awake
+on:
+  schedule:
+    # Runs every 14 minutes
+    # - cron: '0 * * * *' # Runs once every hour instead of every 14 mins, if want to disable frequent pings
+    - cron: '*/14 * * * *'
+  workflow_dispatch: # Allows manual trigger for testing
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Render Backend
+        run: curl -s https://aai-risk-analysis-fault-prediction.onrender.com
