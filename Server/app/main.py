@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import io
+import numpy as np
 from pathlib import Path
 from typing import Any, Dict, List
 
@@ -15,10 +16,7 @@ from .model_registry import ModelRegistry
 BASE_DIR = Path(__file__).resolve().parents[1]
 MODEL_DIR = (BASE_DIR.parent / "Model").resolve()
 
-app = FastAPI(
-    title="AAI Risk Analysis API",
-    version="1.0.0",
-)
+app = FastAPI(title="AAI Risk Analysis API", version="1.0.0")
 
 origins = [
     "http://localhost:5173",
@@ -68,44 +66,25 @@ async def predict(model_name: str, file: UploadFile = File(...)) -> PredictionRe
 
     model = registry.get(model_name)
     if model is None:
-        raise HTTPException(
-            status_code=404,
-            detail=f"Model '{model_name}' not found. Available: {registry.list_names()}",
-        )
+        raise HTTPException(status_code=404, detail=f"Model '{model_name}' not found.")
 
-    content = await file.read()
-    try:
-        df = pd.read_csv(io.BytesIO(content))
-    except Exception:
-        raise HTTPException(status_code=400, detail="Invalid CSV content.")
+    df = pd.read_csv(io.BytesIO(await file.read()))
 
     try:
-        predictions = model.predict(df)
+        if hasattr(model, "predict"):
+            preds = model.predict(df)
+        else:
+            preds = model(np.array(df))
+
     except Exception as e:
         raise HTTPException(status_code=422, detail=f"Prediction failed: {e}")
 
-    predictions_list = getattr(predictions, "tolist", lambda: list(predictions))()
-
-    risk_level = None
-    if hasattr(model, "predict_proba"):
-        try:
-            proba = model.predict_proba(df)
-            avg_max = float(proba.max(axis=1).mean())
-            if avg_max >= 0.8:
-                risk_level = "High"
-            elif avg_max >= 0.5:
-                risk_level = "Medium"
-            else:
-                risk_level = "Low"
-        except Exception:
-            pass
-
-    summary = f"Generated {len(predictions_list)} predictions using '{model_name}'."
+    preds_list = preds.tolist() if hasattr(preds, "tolist") else list(preds)
 
     return PredictionResponse(
         model=model_name,
         rows=len(df),
-        prediction=predictions_list,
-        summary=summary,
-        risk_level=risk_level,
+        prediction=preds_list,
+        summary=f"Generated {len(preds_list)} predictions using '{model_name}'.",
+        risk_level=None,
     )
