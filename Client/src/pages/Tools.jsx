@@ -134,7 +134,9 @@ const ANALYSIS_TYPES = {
 function Tools() {
   const navigate = useNavigate();
   const [selectedFile, setSelectedFile] = useState(null);
-  const [selectedAnalysisType, setSelectedAnalysisType] = useState("remaining_useful_life");
+  const [selectedAnalysisType, setSelectedAnalysisType] = useState(
+    "remaining_useful_life",
+  );
   const [availableModels, setAvailableModels] = useState([]);
   const [modelsError, setModelsError] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -146,12 +148,15 @@ function Tools() {
   const [backendError, setBackendError] = useState("");
 
   const apiBaseUrl = useMemo(
-    () => "https://aai-risk-analysis-fault-prediction.onrender.com" || import.meta.env.VITE_API_BASE_URL,
+    () =>
+      "https://aai-risk-analysis-fault-prediction.onrender.com" ||
+      import.meta.env.VITE_API_BASE_URL,
     [],
   );
 
   const currentAnalysis =
-    ANALYSIS_TYPES[selectedAnalysisType] || ANALYSIS_TYPES.remaining_useful_life;
+    ANALYSIS_TYPES[selectedAnalysisType] ||
+    ANALYSIS_TYPES.remaining_useful_life;
   const requiredFieldsText = currentAnalysis.requiredFields.join(", ");
 
   const resetError = () => setErrorMessage("");
@@ -178,11 +183,14 @@ function Tools() {
       } catch (e) {
         if (!isMounted) return;
 
-        const errorMsg = e?.response?.status ? 
-          `Status ${e.response.status}: ${e.response.statusText}` : 
-          e?.message || "Connection timeout";
-        
-        console.error(`❌ Backend health check failed (attempt ${attempt + 1}/8):`, errorMsg);
+        const errorMsg = e?.response?.status
+          ? `Status ${e.response.status}: ${e.response.statusText}`
+          : e?.message || "Connection timeout";
+
+        console.error(
+          `❌ Backend health check failed (attempt ${attempt + 1}/8):`,
+          errorMsg,
+        );
         console.error("Backend URL:", apiBaseUrl);
         console.error("Full error:", e);
 
@@ -190,7 +198,7 @@ function Tools() {
         if (attempt < 8) {
           setBackendStatus("sleeping");
           setBackendCheckAttempts(attempt + 1);
-          
+
           const delay = Math.min(1000 * Math.pow(1.5, attempt), 10000); // Max 10s delay
           setTimeout(() => {
             if (isMounted) checkBackendHealth(attempt + 1);
@@ -199,7 +207,7 @@ function Tools() {
           setBackendStatus("error");
           setBackendError(
             `Connection failed after 8 attempts (${errorMsg}). ` +
-            `Backend: ${apiBaseUrl}`
+              `Backend: ${apiBaseUrl}`,
           );
           console.error("❌ Backend connection failed after all retries");
         }
@@ -239,7 +247,8 @@ function Tools() {
     setBackendError("");
     setBackendCheckAttempts(0);
     // Trigger a retry by fetching health
-    axios.get(`${apiBaseUrl}/health`, { timeout: 8000 })
+    axios
+      .get(`${apiBaseUrl}/health`, { timeout: 8000 })
       .then(() => {
         setBackendStatus("ready");
         const fetchModels = async () => {
@@ -262,11 +271,13 @@ function Tools() {
         fetchModels();
       })
       .catch((e) => {
-        const errorMsg = e?.response?.status ? 
-          `Status ${e.response.status}: ${e.response.statusText}` : 
-          e?.message || "Connection timeout";
+        const errorMsg = e?.response?.status
+          ? `Status ${e.response.status}: ${e.response.statusText}`
+          : e?.message || "Connection timeout";
         setBackendStatus("error");
-        setBackendError(`Connection failed: ${errorMsg}. Backend: ${apiBaseUrl}`);
+        setBackendError(
+          `Connection failed: ${errorMsg}. Backend: ${apiBaseUrl}`,
+        );
       });
   };
 
@@ -349,15 +360,18 @@ function Tools() {
 
   return (
     <div className="bg-slate-50 min-h-screen">
-      <div className="text-5xl text-center pt-4 font-bold text-blue-800 max-sm:text-3xl">
-        Aerisk <div className="text-xl inline max-sm:text-sm max-sm:block">(Aviation Risk Analysis & Fault Prediction)</div>
+      <div className="text-5xl text-center pt-4 font-bold text-blue-800 max-sm:text-3xl mt-2">
+        Aerisk{" "}
+        <div className="text-xl inline max-sm:text-sm max-sm:block">
+          (Aviation Risk Analysis & Fault Prediction)
+        </div>
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div className="grid gap-8 lg:gap-10 lg:grid-cols-[1.1fr_0.9fr]">
           {/* LEFT */}
           <div className="space-y-6">
             <div className="flex items-start sm:items-center gap-3 text-blue-900">
-              <ShieldCheck className="w-8 h-8 sm:w-9 sm:h-9" />
+              {/* <ShieldCheck className="w-8 h-8 sm:w-9 sm:h-9" /> */}
               <div>
                 <h1 className="text-2xl sm:text-4xl font-bold">
                   Risk Analysis Toolkit
@@ -376,42 +390,47 @@ function Tools() {
               <div className="space-y-3 text-sm sm:text-base text-gray-700">
                 <div className="border-l-4 border-blue-600 pl-3 py-2">
                   <p className="font-semibold text-blue-900">
-                    🔧 Remaining Useful Life (LSTM)
+                    Remaining Useful Life (LSTM)
                   </p>
                   <p className="text-xs sm:text-sm text-gray-600 mt-1">
-                    LSTM deep learning model for predicting remaining operational cycles. Requires CMAPSS sensor data.
+                    LSTM deep learning model for predicting remaining
+                    operational cycles. Requires CMAPSS sensor data.
                   </p>
                 </div>
                 <div className="border-l-4 border-green-600 pl-3 py-2">
                   <p className="font-semibold text-blue-900">
-                    ⚡ Engine Maintenance Risk
+                    Engine Maintenance Risk
                   </p>
                   <p className="text-xs sm:text-sm text-gray-600 mt-1">
-                    Predicts engine status (Healthy/Maintenance/Replace) using custom sensor feature extraction.
+                    Predicts engine status (Healthy/Maintenance/Replace) using
+                    custom sensor feature extraction.
                   </p>
                 </div>
                 <div className="border-l-4 border-yellow-600 pl-3 py-2">
                   <p className="font-semibold text-blue-900">
-                    ⚙️ Landing Gear Fault Detection
+                    Landing Gear Fault Detection
                   </p>
                   <p className="text-xs sm:text-sm text-gray-600 mt-1">
-                    Detects landing gear faults (gas leaks, seal wear, degradation) from system parameters.
+                    Detects landing gear faults (gas leaks, seal wear,
+                    degradation) from system parameters.
                   </p>
                 </div>
                 <div className="border-l-4 border-purple-600 pl-3 py-2">
                   <p className="font-semibold text-blue-900">
-                    📊 Landing Gear RUL
+                    Landing Gear RUL
                   </p>
                   <p className="text-xs sm:text-sm text-gray-600 mt-1">
-                    Predicts remaining useful life cycles for landing gear components.
+                    Predicts remaining useful life cycles for landing gear
+                    components.
                   </p>
                 </div>
                 <div className="border-l-4 border-red-600 pl-3 py-2">
                   <p className="font-semibold text-blue-900">
-                    🏗️ Structural Durability
+                    Structural Durability
                   </p>
                   <p className="text-xs sm:text-sm text-gray-600 mt-1">
-                    Evaluates structural component durability and degradation status.
+                    Evaluates structural component durability and degradation
+                    status.
                   </p>
                 </div>
               </div>
@@ -455,7 +474,7 @@ function Tools() {
               </ul>
             </div>
 
-            <div className="rounded-2xl bg-linear-to-br from-blue-600 to-blue-900 p-4 sm:p-6 text-white shadow-lg">
+            <div className="rounded-2xl bg-linear-to-br from-blue-600 to-blue-900 hover:from-blue-900 hover:to-blue-600 transition-colors p-4 sm:p-6 text-white shadow-lg">
               <div className="flex gap-4">
                 <UploadCloud className="w-8 h-8 sm:w-10 sm:h-10" />
                 <div>
@@ -475,7 +494,7 @@ function Tools() {
           <div className="rounded-2xl border border-blue-100 bg-white p-4 sm:p-6 shadow-sm">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="flex items-center gap-3 text-blue-900">
-                <Zap className="w-6 h-6 sm:w-7 sm:h-7" />
+                {/* <Zap className="w-6 h-6 sm:w-7 sm:h-7" /> */}
                 <h2 className="text-xl sm:text-2xl font-semibold">
                   Analysis Configuration
                 </h2>
@@ -483,13 +502,15 @@ function Tools() {
 
               {/* Backend Status Indicator */}
               {backendStatus !== "ready" && (
-                <div className={`rounded-lg border-2 p-4 flex items-center gap-3 ${
-                  backendStatus === "sleeping"
-                    ? "border-yellow-300 bg-yellow-50"
-                    : backendStatus === "error"
-                    ? "border-red-300 bg-red-50"
-                    : "border-blue-300 bg-blue-50"
-                }`}>
+                <div
+                  className={`rounded-lg border-2 p-4 flex items-center gap-3 ${
+                    backendStatus === "sleeping"
+                      ? "border-yellow-300 bg-yellow-50"
+                      : backendStatus === "error"
+                        ? "border-red-300 bg-red-50"
+                        : "border-blue-300 bg-blue-50"
+                  }`}
+                >
                   {backendStatus === "checking" && (
                     <>
                       <Loader className="w-5 h-5 text-blue-600 animate-spin" />
@@ -504,7 +525,8 @@ function Tools() {
                       <div className="text-sm text-yellow-800">
                         <p className="font-medium">Backend is waking up...</p>
                         <p className="text-xs text-yellow-700">
-                          This may take a few seconds. Attempt {backendCheckAttempts}/8
+                          This may take a few seconds. Attempt{" "}
+                          {backendCheckAttempts}/8
                         </p>
                       </div>
                     </>
@@ -515,7 +537,9 @@ function Tools() {
                       <div className="text-sm text-red-800 font-medium flex-1">
                         <p>Backend connection failed.</p>
                         {backendError && (
-                          <p className="text-xs text-red-700 mt-1">{backendError}</p>
+                          <p className="text-xs text-red-700 mt-1">
+                            {backendError}
+                          </p>
                         )}
                       </div>
                       <button
@@ -606,9 +630,9 @@ function Tools() {
                   CSV File *
                 </span>
                 <p className="mt-2 text-xs text-blue-600 hover:text-blue-800">
-                  <a 
-                    href="https://github.com/shivamm-verma/AAI_Risk-analysis_Fault-Prediction/tree/main/Model/sample_data" 
-                    target="_blank" 
+                  <a
+                    href="https://github.com/shivamm-verma/AAI_Risk-analysis_Fault-Prediction/tree/main/Model/sample_data"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 underline"
                   >

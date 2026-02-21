@@ -22,7 +22,7 @@ export default function Home() {
         <div
           className="relative rounded-lg overflow-hidden h-96 flex items-center justify-center mb-8"
           style={{
-            backgroundImage: 'url("/banner.jpg")',
+            backgroundImage: 'url("https://media.telanganatoday.com/wp-content/uploads/2021/07/Airport-Authority.jpg")',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}

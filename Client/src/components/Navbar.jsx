@@ -28,7 +28,7 @@ export default function Navbar() {
             <li key={label}>
               <Link
                 to={href}
-                className="px-4 py-3 text-sm font-semibold hover:bg-blue-800 block"
+                className="px-4 py-3 text-sm font-semibold hover:bg-blue-800 block rounded-2xl"
               >
                 {label}
               </Link>

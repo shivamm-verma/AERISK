@@ -67,7 +67,7 @@ const ContributorCard = ({ person }) => {
       <img
         src={person.image}
         alt={person.name}
-        className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-gray-200 group-hover:border-blue-500 transition"
+        className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-gray-200 group-hover:border-blue-600 transition"
       />
       <p className="mt-4 text-lg font-medium text-gray-800 group-hover:text-blue-600">
         {person.name}
@@ -78,7 +78,7 @@ const ContributorCard = ({ person }) => {
 
 function About() {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-16">
+    <div className="max-w-7xl mx-auto px-4 py-16 ">
       <h1 className="text-4xl font-semibold text-center mb-6">
         About <span className="font-bold text-5xl">AERISK</span>
       </h1>
