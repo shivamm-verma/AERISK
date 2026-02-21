@@ -3,51 +3,58 @@ import React from "react";
 const technicalContributors = [
   {
     name: "Shivam Verma",
-    image: "Contributors/IMG-20260124-WA0066-cpy.jpg",
+    image: "Contributors/Shivam pfp.jpg",
     linkedin: "https://www.linkedin.com/in/shivam-verma-332710237/",
   },
   {
     name: "Nikhil Kumar",
-    image: "https://via.placeholder.com/200",
-    linkedin: "https://linkedin.com/in/tech2",
+    image:
+      "https://www.djibstyle.com/wp-content/uploads/2019/01/dummy-snapcode-avatar@2x-2.png",
+    linkedin: "https://www.linkedin.com/in/nikhil-kumar-b19571291/",
   },
   {
     name: "Suhani Nagpal",
-    image: "https://via.placeholder.com/200",
-    linkedin: "https://linkedin.com/in/tech3",
+    image:
+      "https://www.djibstyle.com/wp-content/uploads/2019/01/dummy-snapcode-avatar@2x-2.png",
+    linkedin: "https://www.linkedin.com/in/suhani-nagpal-388b68291/",
   },
   {
     name: "Harshita Gupta",
-    image: "https://via.placeholder.com/200",
-    linkedin: "https://linkedin.com/in/tech4",
+    image:
+      "https://www.djibstyle.com/wp-content/uploads/2019/01/dummy-snapcode-avatar@2x-2.png",
+    linkedin: "https://www.linkedin.com/in/harshita-gupta-0759132aa/",
   },
   {
     name: "Nishtha Dhawan",
-    image: "https://via.placeholder.com/200",
-    linkedin: "https://linkedin.com/in/tech5",
+    image:
+      "https://www.djibstyle.com/wp-content/uploads/2019/01/dummy-snapcode-avatar@2x-2.png",
+    linkedin: "#",
   },
 ];
 
 const nonTechnicalContributors = [
   {
     name: "Vishesh Gupta",
-    image: "https://via.placeholder.com/200",
-    linkedin: "https://linkedin.com/in/nontech1",
+    image: "Contributors/Vishesh pfp.jpeg",
+    linkedin: "https://www.linkedin.com/in/vishesh-gupta-21a904276/",
   },
   {
     name: "Bhavya Sabharwal",
-    image: "https://via.placeholder.com/200",
-    linkedin: "https://linkedin.com/in/nontech2",
+    image:
+      "https://www.djibstyle.com/wp-content/uploads/2019/01/dummy-snapcode-avatar@2x-2.png",
+    linkedin: "#",
   },
   {
     name: "Deeksha Gupta",
-    image: "https://via.placeholder.com/200",
-    linkedin: "https://linkedin.com/in/nontech3",
+    image:
+      "https://www.djibstyle.com/wp-content/uploads/2019/01/dummy-snapcode-avatar@2x-2.png",
+    linkedin: "https://www.linkedin.com/in/deeksha-gupta-msit/",
   },
   {
     name: "Kshtiz Aggarwal",
-    image: "https://via.placeholder.com/200",
-    linkedin: "https://linkedin.com/in/nontech4",
+    image:
+      "https://www.djibstyle.com/wp-content/uploads/2019/01/dummy-snapcode-avatar@2x-2.png",
+    linkedin: "#",
   },
 ];
 
@@ -72,7 +79,9 @@ const ContributorCard = ({ person }) => {
 function About() {
   return (
     <div className="max-w-7xl mx-auto px-4 py-16">
-      <h1 className="text-4xl font-semibold text-center mb-6">About <span className="font-bold text-5xl">AERISK</span></h1>
+      <h1 className="text-4xl font-semibold text-center mb-6">
+        About <span className="font-bold text-5xl">AERISK</span>
+      </h1>
       <p className="text-lg text-gray-600 text-center mb-12">
         Meet the team behind our Risk Analysis and Fault Prediction System.
       </p>
