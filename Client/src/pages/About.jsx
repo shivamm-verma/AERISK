@@ -27,7 +27,7 @@ const technicalContributors = [
   {
     name: "Nishtha Dhawan",
     image:
-      "https://www.djibstyle.com/wp-content/uploads/2019/01/dummy-snapcode-avatar@2x-2.png",
+      "",
     linkedin: "#",
   },
 ];
@@ -41,7 +41,7 @@ const nonTechnicalContributors = [
   {
     name: "Bhavya Sabharwal",
     image:
-      "https://www.djibstyle.com/wp-content/uploads/2019/01/dummy-snapcode-avatar@2x-2.png",
+      "",
     linkedin: "#",
   },
   {
@@ -53,7 +53,7 @@ const nonTechnicalContributors = [
   {
     name: "Kshtiz Aggarwal",
     image:
-      "https://www.djibstyle.com/wp-content/uploads/2019/01/dummy-snapcode-avatar@2x-2.png",
+      "",
     linkedin: "#",
   },
 ];

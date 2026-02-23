@@ -40,7 +40,7 @@ export default function Header() {
 
       {/* Announcement Bar */}
       <div className="bg-red-600 text-white py-2 px-3 text-center text-[10px] sm:text-sm leading-snug">
-        <span className="font-semibold block sm:inline">
+        <span className="font-semibold  block sm:inline">
           Schedule for recruitment through GATE 2023, GATE 2024, GATE 2025
         </span>
         <span className="block sm:inline sm:ml-2">
