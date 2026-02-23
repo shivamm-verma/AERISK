@@ -80,7 +80,7 @@ function About() {
   return (
     <div className="max-w-7xl mx-auto px-4 py-16 ">
       <h1 className="text-4xl font-semibold text-center mb-6">
-        About <span className="font-bold text-5xl">AERISK</span>
+        About the<span className="font-bold text-5xl">TEAM</span>
       </h1>
       <p className="text-lg text-gray-600 text-center mb-12">
         Meet the team behind our Risk Analysis and Fault Prediction System.
@@ -89,7 +89,7 @@ function About() {
       {/* Technical Contributors */}
       <div className="mb-16">
         <h2 className="text-2xl font-semibold text-center mb-8">
-          Technical Contributors
+          <span className="font-extrabold text-2xl">Technical</span> Contributors
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 justify-items-center">
           {technicalContributors.map((person, index) => (
@@ -101,7 +101,7 @@ function About() {
       {/* Non-Technical Contributors */}
       <div>
         <h2 className="text-2xl font-semibold text-center mb-8">
-          Non-Technical Contributors
+          <span className="font-extrabold text-2xl">Non-Technical</span> Contributors
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8 justify-items-center">
           {nonTechnicalContributors.map((person, index) => (
